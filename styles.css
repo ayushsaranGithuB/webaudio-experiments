@@ -137,10 +137,10 @@ body{
 #player{
     min-width: 400px;
     width: 50vw;
-    max-width: 600px;
+    max-width: 700px;
     position: absolute;
-    top: max(15vw,90px);
-    left: max(calc(50% - 45vw),0px);
+    z-index: 2;
+    margin-top: max(80px,11vw);
     /* border: 1px solid #f00; */
     cursor: pointer;
     outline: none;
