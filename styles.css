@@ -141,6 +141,7 @@ body{
     position: absolute;
     z-index: 2;
     margin-top: max(80px,11vw);
+    margin-left: -5%;
     /* border: 1px solid #f00; */
     cursor: pointer;
     outline: none;
