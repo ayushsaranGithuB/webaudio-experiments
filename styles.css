@@ -164,7 +164,7 @@ body{
         }
 
 #audioBtn{
-    /* display: none; */
+    display: none;
 }
 
 .playlist{
