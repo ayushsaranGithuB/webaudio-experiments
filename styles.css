@@ -53,22 +53,26 @@ body{
     animation: scroll-right 20s infinite linear ;
     filter: invert(52%) sepia(6%) saturate(230%) hue-rotate(163deg) brightness(92%) contrast(87%);
     width: 1200px;
+    animation-play-state: paused;
 }
 
 #layer-2{
     animation: scroll-right 35s infinite linear ;
     filter: invert(73%) sepia(16%) saturate(319%) hue-rotate(18deg) brightness(92%) contrast(92%);    
     width: 1200px;
+    animation-play-state: paused;
 }
 
 #layer-3{
     animation: scroll-right 50s infinite linear ;
     filter: invert(88%) sepia(19%) saturate(194%) hue-rotate(19deg) brightness(97%) contrast(90%);
     width: 1200px;
+    animation-play-state: paused;
 }
 
 #headphones {
-	animation: alternate 2s infinite bouncy ease-in-out;
+	animation: alternate 2s infinite bouncy ease-in-out;    
+    animation-play-state: paused;
 }
 
 #dial-1 {
@@ -148,11 +152,19 @@ body{
     -webkit-tap-highlight-color: transparent;
 
 }
-#hover-shadow{ opacity: .15; }
+    #hover-shadow{ opacity: .15; }
 
-#player:hover #hover-shadow{    
-     animation: alternate 2s infinite shadow ease-in-out;
-     
+        #player:hover #hover-shadow{    
+            animation: alternate 2s infinite shadow ease-in-out;
+            
+        }
+
+        #power-btn{
+            transform:translateY(-4px)
+        }
+
+#audioBtn{
+    /* display: none; */
 }
 
 .playlist{

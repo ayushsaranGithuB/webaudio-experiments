@@ -40,19 +40,59 @@
              console.log(dial1);
 
             
+ // --------------- [ AUDIO SECTION ] ---------------------------
+
+            // Tutorial https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Using_Web_Audio_API
+
+            // 1. Build an AudioContext()
+            // for legacy browsers
+            const AudioContext = window.AudioContext || window.webkitAudioContext;
+            const audioContext = new AudioContext();
+
+            // get the audio element
+            const audioElement = document.getElementById("audioTrack");
+
+            // pass it into the audio context
+            const track = audioContext.createMediaElementSource(audioElement);
+            track.connect(audioContext.destination);
 
 
+            // Select our play button
+            const playButton = document.getElementById("audioBtn");
 
-        // do something here ...
-        }, false);
+            function toggleAudio() {
+                // Check if context is in suspended state (autoplay policy)
+                if (audioContext.state === "suspended") {
+                audioContext.resume();
+                }
 
-        function pause(){
+                // Play or pause track depending on state
+                if (playButton.dataset.playing === "false") {
+                audioElement.play();
+                playButton.dataset.playing = "true";
+                } else if (playButton.dataset.playing === "true") {
+                audioElement.pause();
+                playButton.dataset.playing = "false";
+                }
+            }
+
+            // On Track END
+
+            audioElement.addEventListener(
+            "ended",
+            () => {
+                playButton.dataset.playing = "false";
+            },
+            false
+            );
+
+            function pause(){
             nodes = document.querySelectorAll('.parallax-layer');
             nodes.forEach(e => e.style.animationPlayState = 'paused');
             headphones.style.animationPlayState = 'paused';
             document.getElementById('power-btn').style.transform = "translateY(-4px)";
             // document.getElementById('play').style.transform = "translateX(0)";
-
+            toggleAudio();
             // Turn off tape
             document.getElementById('dial-1').style.animationPlayState = 'paused';
             document.getElementById('dial-2').style.animationPlayState = 'paused';
@@ -64,14 +104,27 @@
             headphones.style.animationPlayState = 'running';
             document.getElementById('power-btn').style.transform = "translateY(0)";
             // document.getElementById('play').style.transform = "translateX(1px)";
-
+            toggleAudio();
             // Turn on tape
             document.getElementById('dial-1').style.animationPlayState = 'running';
             document.getElementById('dial-2').style.animationPlayState = 'running';
 
         }
 
+
+        // do something here ...
+        }, false);
+
+        
+
+
+       
+
+
     </script>
+
+    <audio id="audioTrack" src="music/song.mp3"></audio>
+
     
     <div id="container">
         <div id="frame">
@@ -532,13 +585,19 @@
                     </g>
                 </g>
             </svg>
-       
         </div>
 
         <div class="playlist">
             
         </div>
         <div class="playlist2">
+
+            <button id="audioBtn" data-playing="true" role="switch" aria-checked="false">
+                <span>Play/Pause</span>
+              </button>
+
+
+
             <div id="windowInfo"></div>
             <script>
         
