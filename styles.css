@@ -22,8 +22,8 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    
     min-width: 400px;
+    width: 100;
     max-width: 1200px;
     margin: 0 auto;
     position: relative;
@@ -164,4 +164,15 @@ body{
     height: 500px;
     width: 100%;
     background-color: #8c9b99;
+    display: flex;
+    text-align: center;
+    color: #fff;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#windowInfo{
+    font-family: monospace;
+    font-size: 1.6em;
+    line-height: 2em;
 }

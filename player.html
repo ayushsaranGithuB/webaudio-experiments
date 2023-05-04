@@ -535,10 +535,20 @@
         </div>
 
         <div class="playlist">
-
+            
         </div>
         <div class="playlist2">
+            <div id="windowInfo"></div>
+            <script>
+        
+                window.addEventListener("load", function() {
+                    document.getElementById("windowInfo").innerHTML = 'Client Width:' + document.documentElement.clientWidth + '<br />';
+                    document.getElementById("windowInfo").innerHTML += 'Client Height:' + document.documentElement.clientHeight + '<br />';
+                    document.getElementById("windowInfo").innerHTML += 'window Width:' + window.innerWidth + '<br />';
+                    document.getElementById("windowInfo").innerHTML += 'window Height:' + window.innerHeight + '<br />';
+                });
             
+        </script>
         </div>
     </div>
 
