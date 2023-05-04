@@ -22,16 +22,16 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 80%;
-    min-width: 600px;
+    
+    min-width: 400px;
     max-width: 1200px;
-    margin: 50px auto;
+    margin: 0 auto;
     position: relative;
 }
 
 #frame{
     width: 100%;
-    height: 30vw;
+    height: max(30vw,300px);
     overflow: hidden;
     position: relative;
     border-bottom: 6vw solid var(--gray);
@@ -99,6 +99,7 @@ body{
     cursor: pointer;
     display: flex;
     flex-direction: column;
+    display: none;
 }
     .backup-controls:hover{opacity: 1}
 
@@ -109,14 +110,17 @@ body{
 }
 
 #player{
-    min-width: 300px;
+    min-width: 400px;
     width: 50vw;
     max-width: 600px;
     position: absolute;
-    top: 20vw;
-    left: min(5%,-50px);
+    top: max(15vw,90px);
+    left: max(calc(50% - 45vw),0px);
     /* border: 1px solid #f00; */
     cursor: pointer;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+
 }
 #hover-shadow{ opacity: .15; }
 
@@ -134,4 +138,5 @@ body{
 .playlist2{
     height: 500px;
     width: 100%;
+    background-color: #8c9b99;
 }

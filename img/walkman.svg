@@ -5,7 +5,7 @@
 	 style="enable-background:new 0 0 600 600;" xml:space="preserve">
 <style type="text/css">
 	.st0{opacity:0.2;}
-	.st1{fill:url(#partshadow_00000177473396306320976020000014695001669142185857_);}
+	.st1{fill:url(#partshadow_00000073693208065998531260000016011824449031040175_);}
 	.st2{opacity:0.1;fill:#231F20;enable-background:new    ;}
 	.st3{fill:#4E4E50;}
 	.st4{fill:#383738;}
@@ -42,7 +42,7 @@
 	.st35{fill:#402D13;}
 	.st36{fill:#E3DEC8;}
 	.st37{opacity:0.4;fill:#FFFFFF;enable-background:new    ;}
-	.st38{fill:#E6E5D5;}
+	.st38{fill:#91908A;}
 	.st39{fill:#968D73;}
 	.st40{fill:#E6E7E7;}
 	.st41{fill:#4F4E41;}
@@ -51,17 +51,17 @@
 </style>
 <g id="hover-shadow_00000127042403151468939020000018367199087265360049_" class="st0">
 	
-		<radialGradient id="partshadow_00000097477968091178614590000004746883370532666784_" cx="321.5521" cy="-2.473" r="84.4833" gradientTransform="matrix(1.4745 0 0 0.1246 -121.3337 497.2082)" gradientUnits="userSpaceOnUse">
+		<radialGradient id="partshadow_00000149352563667606599900000003776658243052721826_" cx="321.5521" cy="-2.473" r="84.4833" gradientTransform="matrix(1.4745 0 0 0.1246 -121.3337 497.2082)" gradientUnits="userSpaceOnUse">
 		<stop  offset="0" style="stop-color:#000000"/>
-		<stop  offset="8.552779e-02" style="stop-color:#0A0A0A"/>
-		<stop  offset="0.2331" style="stop-color:#262626"/>
-		<stop  offset="0.4249" style="stop-color:#545454"/>
-		<stop  offset="0.6535" style="stop-color:#939393"/>
-		<stop  offset="0.9105" style="stop-color:#E2E2E2"/>
-		<stop  offset="1" style="stop-color:#FFFFFF"/>
+		<stop  offset="8.552772e-02" style="stop-color:#0A0A0A;stop-opacity:0.9145"/>
+		<stop  offset="0.2331" style="stop-color:#262626;stop-opacity:0.7669"/>
+		<stop  offset="0.4249" style="stop-color:#545454;stop-opacity:0.5751"/>
+		<stop  offset="0.6535" style="stop-color:#939393;stop-opacity:0.3465"/>
+		<stop  offset="0.9105" style="stop-color:#E2E2E2;stop-opacity:8.952129e-02"/>
+		<stop  offset="1" style="stop-color:#FFFFFF;stop-opacity:0"/>
 	</radialGradient>
 	
-		<ellipse id="partshadow" style="fill:url(#partshadow_00000097477968091178614590000004746883370532666784_);" cx="352.8" cy="496.9" rx="144.6" ry="8.5"/>
+		<ellipse id="partshadow" style="fill:url(#partshadow_00000149352563667606599900000003776658243052721826_);" cx="352.8" cy="496.9" rx="144.6" ry="8.5"/>
 </g>
 <g id="shadow">
 	<path id="body_00000111876369935462760190000012001470003278162867_" class="st2" d="M408,210.7h-17v-2.2v-5.7h-26h-13v5.7v2.2
@@ -196,8 +196,8 @@
 		L414.6,313.1z"/>
 	<path class="st31" d="M414.6,423.7h-46.5V313.1l-2.3-2.3c-0.5,0.5-0.8,1.2-0.8,2V424c0,1.5,1.2,2.8,2.8,2.8H415
 		c0.8,0,1.5-0.3,2-0.8L414.6,423.7z"/>
-	<g>
-		<g>
+	<g id="dials">
+		<g id="dial-2">
 			<path class="st32" d="M402.8,335.5c0,6.3-5.1,11.5-11.5,11.5c-6.3,0-11.5-5.1-11.5-11.5c0-6.3,5.1-11.5,11.5-11.5
 				C397.6,324,402.8,329.2,402.8,335.5z"/>
 			<path class="st33" d="M400.4,335.5c0,5-4.1,9.1-9.1,9.1s-9.1-4.1-9.1-9.1s4.1-9.1,9.1-9.1S400.4,330.5,400.4,335.5z"/>
@@ -207,8 +207,10 @@
 			<path class="st33" d="M395,339.2c-2,2-5.3,2-7.4,0c-2-2-2-5.3,0-7.4L395,339.2z"/>
 			<path class="st35" d="M393.9,335.5c0,1.4-1.2,2.6-2.6,2.6s-2.6-1.2-2.6-2.6s1.2-2.6,2.6-2.6C392.7,332.9,393.9,334.1,393.9,335.5
 				z"/>
+			<polygon class="st35" points="392.7,334.1 392.7,331.3 389.9,331.3 389.9,334.1 387.2,334.1 387.2,336.8 389.9,336.8 
+				389.9,339.7 392.7,339.7 392.7,336.8 395.4,336.8 395.4,334.1 			"/>
 		</g>
-		<g>
+		<g id="dial-1">
 			<path class="st32" d="M402.8,401.3c0,6.3-5.1,11.5-11.5,11.5c-6.3,0-11.5-5.1-11.5-11.5c0-6.3,5.1-11.5,11.5-11.5
 				C397.6,389.8,402.8,394.9,402.8,401.3z"/>
 			<path class="st33" d="M400.4,401.3c0,5-4.1,9.1-9.1,9.1s-9.1-4.1-9.1-9.1s4.1-9.1,9.1-9.1C396.3,392.2,400.4,396.2,400.4,401.3z"
@@ -218,6 +220,8 @@
 			<path class="st33" d="M395,405c-2,2-5.3,2-7.4,0s-2-5.3,0-7.4L395,405z"/>
 			<path class="st35" d="M393.9,401.3c0,1.4-1.2,2.6-2.6,2.6s-2.6-1.2-2.6-2.6s1.2-2.6,2.6-2.6C392.7,398.7,393.9,399.8,393.9,401.3
 				z"/>
+			<polygon class="st35" points="392.7,399.9 392.7,397.1 389.9,397.1 389.9,399.9 387.2,399.9 387.2,402.6 389.9,402.6 
+				389.9,405.5 392.7,405.5 392.7,402.6 395.4,402.6 395.4,399.9 			"/>
 		</g>
 		<g>
 			<path class="st36" d="M399.4,381c0,1.5-1.2,2.8-2.8,2.8H386c-1.5,0-2.8-1.2-2.8-2.8v-25.3c0-1.5,1.2-2.8,2.8-2.8h10.6
