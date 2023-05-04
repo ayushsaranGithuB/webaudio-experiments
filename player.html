@@ -599,25 +599,19 @@
 
 
 
-            <div id="windowInfo"></div>
-            <script>
-        
-                window.addEventListener("load", function() {
-                    document.getElementById("windowInfo").innerHTML = 'Client Width:' + document.documentElement.clientWidth + '<br />';
-                    document.getElementById("windowInfo").innerHTML += 'Client Height:' + document.documentElement.clientHeight + '<br />';
-                    document.getElementById("windowInfo").innerHTML += 'window Width:' + window.innerWidth + '<br />';
-                    document.getElementById("windowInfo").innerHTML += 'window Height:' + window.innerHeight + '<br />';
-                });
             
-        </script>
+
         </div>
     </div>
 
-    <div class="backup-controls">
-        <button id="play-btn">&#x23F5; Play</button>
-        <button id="pause-btn">&#x23F8; Pause</button>
-    </div> 
-
+    
+    <div id="windowInfo">
+    </div>
+    <script>        
+        window.addEventListener("load", function() {
+            document.getElementById("windowInfo").innerHTML =  document.documentElement.clientWidth + ' x ' + document.documentElement.clientHeight;
+        });            
+    </script>
 
 </body>
 </html>
