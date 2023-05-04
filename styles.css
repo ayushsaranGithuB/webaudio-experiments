@@ -1,0 +1,62 @@
+body{
+    background-color: aqua;
+    margin: 0;
+    padding:0;
+}
+
+#container{
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px;
+}
+
+#frame{
+    border: 1px solid #f00;
+    width: 600px;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+}
+
+#frame .parallax-layer{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+}
+
+.parallax-layer img{
+    height: 12vh;
+}
+
+#layer-1{
+    animation: scroll-right 15s infinite linear ;
+}
+
+#layer-2{
+    animation: scroll-right 25s infinite linear ;
+}
+
+#layer-3{
+    animation: scroll-right 35s infinite linear ;
+}
+
+@keyframes scroll-right {        /* give it a name: "go-left-right" */
+    from { right: 0; }             /* animate from left: 0px */
+    to { right: -950px; } /* animate to left: 100%-50px */
+}
+
+
+.controls{
+    margin: 20px;
+}
+
+.controls button{
+    padding: 10px;
+    margin: 10px;
+}
+#player{
+    width: 500px;
+}

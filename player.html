@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <script>
+        
+        document.addEventListener('DOMContentLoaded', function () {
+            // play animation
+            document.querySelector("#play-btn").addEventListener('click', function() {
+                play();
+            });
+
+            // pause animation
+            document.querySelector("#pause-btn").addEventListener('click', function() {
+                pause();
+            });
+
+
+        // do something here ...
+        }, false);
+
+        function pause(){
+            nodes = document.querySelectorAll('.parallax-layer');
+            nodes.forEach(e => e.style.animationPlayState = 'paused'
+                //console.log(e)
+            );
+        }
+
+        function play(){
+            nodes = document.querySelectorAll('.parallax-layer');
+            nodes.forEach(e => e.style.animationPlayState = 'running'
+                //console.log(e)
+            );
+        }
+
+    </script>
+    
+
+    <div id="container">
+        <div id="frame">
+            <div class="parallax-layer" id="layer-3">
+                <img src="img/3.png" alt="" />
+                <img src="img/3.png" alt="" />
+            </div>
+            <div class="parallax-layer" id="layer-2">
+                <img src="img/2.png" alt="" />
+                <img src="img/2.png" alt="" />
+            </div>
+            <div class="parallax-layer" id="layer-1">
+                <img src="img/1.png" alt="" />
+                <img src="img/1.png" alt="" />
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="play-btn">Play</button>
+            <button id="pause-btn">Pause</button>
+        </div>
+
+        <div id="player">
+            <object type="image/svg+xml" data="img/walkman.svg"></object>
+        </div>
+    </div>
+
+
+</body>
+</html>
