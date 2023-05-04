@@ -60,12 +60,44 @@
 
                 // Play or pause track depending on state
                 if (playButton.dataset.playing === "false") {
-                audioElement.play();
-                playButton.dataset.playing = "true";
+                    fadeIn(audioElement,1,1,1000,50);
+                    audioElement.play();
+                    playButton.dataset.playing = "true";
                 } else if (playButton.dataset.playing === "true") {
-                audioElement.pause();
-                playButton.dataset.playing = "false";
+                    // audioElement.pause();
+                    fadeOut(audioElement,1,0,500,50);
+                    playButton.dataset.playing = "false";
                 }
+            }
+
+            function fadeIn(audioElement, maxVol, startDelay, fadeInTime, steps) {
+                let i = 0;
+                let interval = fadeInTime / steps;
+                setTimeout(function () {
+                    let intervalId = setInterval(function() {
+                    let volume = (maxVol / steps) * i;
+                    audioElement.volume = volume;
+                    console.log(volume);
+                    if(++i >= steps)
+                        clearInterval(intervalId);
+                    }, interval);
+                }, startDelay);
+            }
+
+            function fadeOut(audioElement, maxVol, startDelay, fadeInTime, steps) {
+                let i = 0;
+                let interval = fadeInTime / steps;
+                setTimeout(function () {
+                    let intervalId = setInterval(function() {
+                    let volume = 0.02 * i;
+                    audioElement.volume = 1 - volume;
+                    console.log(audioElement.volume);
+                    if(++i >= steps)
+                        clearInterval(intervalId);
+                        if(audioElement.volume < 0.1)
+                            audioElement.pause();
+                    }, interval);
+                }, startDelay);
             }
 
             // On Track END
