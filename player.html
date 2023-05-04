@@ -32,11 +32,11 @@
                 
             });
 
-            // move headphones
-            var headphones = document.getElementById('headphones');
-            console.log(headphones);
-
-            headphones.style.animation.name = 'alternate 3s infinite bouncy ease-in-out';
+            // // move headphones
+             var headphones = document.getElementById('headphones');
+             var dial1 = document.getElementById('dial-1');
+             var dial2 = document.getElementById('dial-2');
+             console.log(dial1);
 
             
 
@@ -51,6 +51,10 @@
             headphones.style.animationPlayState = 'paused';
             document.getElementById('power-btn').style.transform = "translateY(-4px)";
             // document.getElementById('play').style.transform = "translateX(0)";
+
+            // Turn off tape
+            document.getElementById('dial-1').style.animationPlayState = 'paused';
+            document.getElementById('dial-2').style.animationPlayState = 'paused';
         }
 
         function play(){
@@ -59,6 +63,10 @@
             headphones.style.animationPlayState = 'running';
             document.getElementById('power-btn').style.transform = "translateY(0)";
             // document.getElementById('play').style.transform = "translateX(1px)";
+
+            // Turn on tape
+            document.getElementById('dial-1').style.animationPlayState = 'running';
+            document.getElementById('dial-2').style.animationPlayState = 'running';
 
         }
 
