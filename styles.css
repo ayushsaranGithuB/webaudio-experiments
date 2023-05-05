@@ -179,7 +179,7 @@ body {
 }
 
 .playlist2 {
-    height: 200px;
+    height: 120px;
     width: 100%;
     background: rgb(140, 155, 153);
     background: linear-gradient(180deg, rgba(140, 155, 153, 1) 0%, rgba(73, 82, 81, 1) 100%);
@@ -248,6 +248,7 @@ body {
     line-height: 26px;
     margin: 0 0 16px 0;
     text-indent: 10px;
+    word-break: keep-all;
 }
 
 .info p{
@@ -347,3 +348,40 @@ p.footer{
 .home-page{
     min-width: 600px;
 }
+
+/* light theme */
+/* 
+.mainContent main {
+    width: clamp(400px, 70%, 700px);
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 6px;
+    padding: 50px;
+}
+
+.mainContent h1, .mainContent h2, .mainContent h3 {
+    color: #4b5453;
+    font-family: 'Lato', Verdana, Geneva, sans-serif;
+    font-size: 60px;
+    font-weight: 300;
+    line-height: 70px;
+    margin: 0 0 58px;
+}
+
+.mainContent h3 {
+    font-size: 28px;
+    line-height: 36px;
+    margin-bottom: 24px;
+}
+
+.mainContent p {
+    color: #606060;
+}
+
+.mainContent ul li .link {
+    color: #606060;
+}
+
+a.expLink {
+    border: 1px solid #606060;
+} */
