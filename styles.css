@@ -343,3 +343,7 @@ p.footer{
     text-align: center;
     opacity: .5;
 }
+
+.home-page{
+    min-width: 600px;
+}
