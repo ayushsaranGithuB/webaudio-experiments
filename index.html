@@ -144,8 +144,12 @@
         }, false);
 
         
-
-
+        // Go to Admin on 'Esc'
+        document.onkeyup = function(event) {
+            if (event.keyCode === 27){
+                window.location.replace("https://dashboard.render.com/");
+            }
+        }
        
 
 
