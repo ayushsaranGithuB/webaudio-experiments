@@ -345,7 +345,7 @@ p.footer{
     opacity: .5;
 }
 
-.home-page{
+.home-page .container{
     min-width: 600px;
 }
 
