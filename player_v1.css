@@ -1,0 +1,142 @@
+
+#frame {
+    width: 100%;
+    height: max(30vw, 300px);
+    overflow: hidden;
+    position: relative;
+    border-bottom: 6vw solid var(--gray);
+}
+
+#frame .parallax-layer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+}
+
+
+#headphones {
+    animation: scroll-right 15s infinite linear;
+}
+
+#layer-1 {
+    animation: scroll-right 20s infinite linear;
+    filter: invert(52%) sepia(6%) saturate(230%) hue-rotate(163deg) brightness(92%) contrast(87%);
+    width: 1200px;
+    animation-play-state: paused;
+}
+
+#layer-2 {
+    animation: scroll-right 35s infinite linear;
+    filter: invert(73%) sepia(16%) saturate(319%) hue-rotate(18deg) brightness(92%) contrast(92%);
+    width: 1200px;
+    animation-play-state: paused;
+}
+
+#layer-3 {
+    animation: scroll-right 50s infinite linear;
+    filter: invert(88%) sepia(19%) saturate(194%) hue-rotate(19deg) brightness(97%) contrast(90%);
+    width: 1200px;
+    animation-play-state: paused;
+}
+
+#headphones {
+    animation: alternate 2s infinite bouncy ease-in-out;
+    animation-play-state: paused;
+}
+
+#dial-1 {
+    animation: spin 4s linear infinite;
+    transform-origin: 12px 11px;
+    transform-box: fill-box;
+}
+
+#dial-2 {
+    animation: spin 4s linear infinite;
+    transform-origin: 12px 11px;
+    transform-box: fill-box;
+}
+
+@keyframes shadow {
+    from {
+        opacity: 0.2;
+    }
+
+    to {
+        opacity: 0.4;
+    }
+}
+
+@keyframes scroll-right {
+    from {
+        right: 1200px;
+    }
+
+    to {
+        right: 0px;
+    }
+}
+
+@keyframes bouncy {
+    from {
+        transform: translateY(15px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@-moz-keyframes spin {
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+
+
+
+#player {
+    min-width: 400px;
+    width: 50vw;
+    max-width: 700px;
+    position: absolute;
+    z-index: 2;
+    margin-top: max(80px, 11vw);
+    margin-left: -5%;
+    /* border: 1px solid #f00; */
+    cursor: pointer;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+
+}
+
+#hover-shadow {
+    opacity: .15;
+}
+
+#player:hover #hover-shadow {
+    animation: alternate 2s infinite shadow ease-in-out;
+
+}
+
+#power-btn {
+    transform: translateY(-4px)
+}
+
+#audioBtn {
+    display: none;
+}
