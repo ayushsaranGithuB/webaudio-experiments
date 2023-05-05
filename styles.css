@@ -215,7 +215,7 @@ body {
 }
 
 .mainContent main {
-    width: clamp(300px, 60%, 700px);
+    width: clamp(300px, 70%, 700px);
     margin: 0 auto;
 }
 
