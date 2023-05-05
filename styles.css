@@ -50,6 +50,17 @@ body {
     justify-content: center;
 }
 
+.playlist3 {
+    height: 200px;
+    width: 100%;
+    background: rgb(74, 81, 80) 100%;
+    display: flex;
+    text-align: center;
+    color: #fff;
+    flex-direction: column;
+    justify-content: center;
+}
+
 /*  --------------- [ DEV TOOLS ] --------------------------- */
 
 
