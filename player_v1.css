@@ -3,6 +3,7 @@
     max-width: 1400px;
     min-height: 99vh;
     background-color: #3b3b38;
+    overflow: hidden;
 }
 
 #frame {
@@ -175,8 +176,8 @@
 
 img#player-toggle{
     position: absolute;
-    top: 220px;
-    left: -50px;
+    top: 80%;
+    left:50%;
     width: 200px;
     animation: alternate 2s infinite bouncy ease-in-out, forwards 10s fade-away ease-in;
 }
