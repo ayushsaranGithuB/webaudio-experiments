@@ -1,6 +1,6 @@
 window.addEventListener("load", function () {
 
-    headphones = document.querySelector(".playlist");
+    headphones = document.querySelector("#boombox").contentDocument.querySelector("#svg-radio-body");
     headphones.style.animationPlayState = 'paused';
 
     headphones.addEventListener('click',() =>{
@@ -28,11 +28,13 @@ window.addEventListener("load", function () {
 
         // get the audio element
         const audioElement = document.getElementById("audioTrack");
+        
         // audioContext.close();    
-        // pass it into the audio context
-
         const track = '';
 
+        
+        
+        // pass it into the audio context
         if (track === undefined) {
             const track = audioContext.createMediaElementSource(audioElement);
             track.connect(audioContext.destination);
