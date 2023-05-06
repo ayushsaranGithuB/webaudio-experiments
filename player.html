@@ -117,13 +117,15 @@
             
 
         function pause(){
+            console.log('ran pause ||');
             nodes = document.querySelectorAll('.parallax-layer');
             nodes.forEach(e => e.style.animationPlayState = 'paused');
             headphones.style.animationPlayState = 'paused';
             document.getElementById('power-btn').style.transform = "translateY(-4px)";
             // document.getElementById('play').style.transform = "translateX(0)";
             toggleAudio();
-            // Turn off tape
+
+            // Turn off rotating tape dials
             document.getElementById('dial-1').style.animationPlayState = 'paused';
             document.getElementById('dial-2').style.animationPlayState = 'paused';
             
@@ -132,13 +134,18 @@
         }
 
         function play(){
+            console.log('ran play >>');
             nodes = document.querySelectorAll('.parallax-layer');
             nodes.forEach(e => e.style.animationPlayState = 'running');            
             headphones.style.animationPlayState = 'running';
             document.getElementById('power-btn').style.transform = "translateY(0)";
             // document.getElementById('play').style.transform = "translateX(1px)";
             toggleAudio();
-            // Turn on tape
+            
+            // Turn ON rotating tape dials
+            document.getElementById('dial-1').style.animationPlayState = 'running';
+            document.getElementById('dial-2').style.animationPlayState = 'running';
+
             
             // Slowly Bring parallax to start
                 easeInOutPauseScroll(-10);
