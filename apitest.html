@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/fetchmusic.js"></script>
+</head>
+<body>    
+    <div style="margin: 20px auto 0; padding:50px;">
+        <textarea name="text" id="txt-area" cols="80" rows="3"></textarea>
+            <form onsubmit="fetchfromAPI();">
+                <input type="search" name="song" id="searchBox" placeholder="Song??"/>
+                <button type="submit" >Fetch</button>
+            </form>
+    </div>
+
+
+    <button id="play" disabled>Play Track!</button>
+    <button id="stop" disabled>STOP!</button>
+
+
+</body>
+</html>

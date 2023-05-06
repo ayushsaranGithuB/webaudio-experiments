@@ -107,3 +107,64 @@
     -webkit-tap-highlight-color: transparent;
 
 }
+
+
+.formfetch{
+    margin-top: 8%;
+    text-align: center;
+    width: 80%;
+    max-width: 620px;
+}
+
+.formfetch input, .formfetch button{
+    padding: 18px;
+    font-size: 1em;
+    border-radius: 6px;
+    border: none;
+}
+
+.formfetch button{
+    padding: 18px;
+    cursor: pointer;
+}
+
+.formfetch .results{
+    color: #fff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    border: 2px solid #fff;
+    border-radius: 6px;
+    opacity: 0;
+    margin-top: 50px;
+}
+.formfetch .results h3{
+    font-size: 2em;
+    margin: -21px 80px 0;
+    padding: 0;
+    background-color: #363a66;
+}
+.formfetch .results ul{
+    margin: 50px 0;
+    padding: 0;
+}
+
+.formfetch .results ul li{
+    list-style: none;
+    margin: 0 15px 20px;
+    padding: 20px;
+    text-align: left;
+    background: url('../img/arrow.png') 10px center no-repeat #2d2f4644;
+    background-size: 2em;
+    padding-left: 4em;
+    cursor: pointer;
+}
+
+.formfetch textarea{
+    opacity: 0;
+}
+
+@media screen and (min-width: 730px) {
+    .formfetch{
+        margin-top: 18%;
+    }
+  }
