@@ -1,0 +1,19 @@
+#player3{
+    position: absolute;
+    width: 60%;
+}
+
+
+#frame{
+    background-image: url('/img/ab.svg');
+    border-bottom-color: #1f1c38;
+}
+
+
+#frame .parallax-layer {
+    filter: none;
+}
+
+.playlist{
+    background-color: #515a60;
+}
