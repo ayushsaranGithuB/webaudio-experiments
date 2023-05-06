@@ -32,10 +32,10 @@ body {
 
 
 .playlist {
-    height: 9vw;
+    height: min(3vw,110px);
     width: 100%;
-    background-color: #606060;
-    border-bottom: 1vw solid var(--gray);
+    background-color: #525c5a;
+    border-bottom: 1vw solid #414a49;
 }
 
 .playlist2 {

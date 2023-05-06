@@ -41,6 +41,12 @@
 
             // Tutorial https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Using_Web_Audio_API
 
+            
+
+
+            function toggleAudio() {
+
+                
             // 1. Build an AudioContext()
             // for legacy browsers
             const AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -48,31 +54,34 @@
 
             // get the audio element
             const audioElement = document.getElementById("audioTrack");
-
+            // audioContext.close();    
             // pass it into the audio context
-            const track = audioContext.createMediaElementSource(audioElement);
-            track.connect(audioContext.destination);
+            
+            const track = '';
+
+            if(track === undefined){
+                const track = audioContext.createMediaElementSource(audioElement);
+                track.connect(audioContext.destination);
+            }
 
 
-            // Select our play button
-            const playButton = document.getElementById("audioBtn");
-
-            function toggleAudio() {
                 // Check if context is in suspended state (autoplay policy)
                 if (audioContext.state === "suspended") {
                 audioContext.resume();
                 }
 
-                // Play or pause track depending on state
-                if (playButton.dataset.playing === "false") {
-                    fadeIn(audioElement,1,1,1000,50);
-                    audioElement.play();
-                    playButton.dataset.playing = "true";
-                } else if (playButton.dataset.playing === "true") {
-                    // audioElement.pause();
-                    fadeOut(audioElement,1,0,500,50);
-                    playButton.dataset.playing = "false";
-                }
+                // if(playButton){
+                    // Play or pause track depending on state
+                    if (headphones.style.animationPlayState == 'running') {
+                        fadeIn(audioElement,1,1,1000,50);
+                        audioElement.play();
+                        // playButton.dataset.playing = "true";
+                    } else {
+                        // audioElement.pause();
+                        fadeOut(audioElement,1,0,500,50);
+                        // playButton.dataset.playing = "false";
+                    }
+                // }
             }
 
             function fadeIn(audioElement, maxVol, startDelay, fadeInTime, steps) {
@@ -82,7 +91,7 @@
                     let intervalId = setInterval(function() {
                     let volume = (maxVol / steps) * i;
                     audioElement.volume = volume;
-                    console.log(volume);
+                    // console.log(volume);
                     if(++i >= steps)
                         clearInterval(intervalId);
                     }, interval);
@@ -96,7 +105,7 @@
                     let intervalId = setInterval(function() {
                     let volume = 0.02 * i;
                     audioElement.volume = 1 - volume;
-                    console.log(audioElement.volume);
+                    // console.log(audioElement.volume);
                     if(++i >= steps)
                         clearInterval(intervalId);
                         if(audioElement.volume < 0.1)
@@ -105,17 +114,9 @@
                 }, startDelay);
             }
 
-            // On Track END
+            
 
-            audioElement.addEventListener(
-            "ended",
-            () => {
-                playButton.dataset.playing = "false";
-            },
-            false
-            );
-
-            function pause(){
+        function pause(){
             nodes = document.querySelectorAll('.parallax-layer');
             nodes.forEach(e => e.style.animationPlayState = 'paused');
             headphones.style.animationPlayState = 'paused';
@@ -125,6 +126,9 @@
             // Turn off tape
             document.getElementById('dial-1').style.animationPlayState = 'paused';
             document.getElementById('dial-2').style.animationPlayState = 'paused';
+            
+            // Slowly Bring parallax to stop
+                easeInOutPauseScroll(10);
         }
 
         function play(){
@@ -135,9 +139,19 @@
             // document.getElementById('play').style.transform = "translateX(1px)";
             toggleAudio();
             // Turn on tape
-            document.getElementById('dial-1').style.animationPlayState = 'running';
-            document.getElementById('dial-2').style.animationPlayState = 'running';
+            
+            // Slowly Bring parallax to start
+                easeInOutPauseScroll(-10);
 
+        }
+       function easeInOutPauseScroll(distanceInPx ){                
+            let parallaxLayers = document.querySelectorAll('.parallax-layer');
+            let i = parallaxLayers.length;
+            parallaxLayers.forEach(element => {                
+                element.style.transform = `translateX(${distanceInPx/i}px)`;
+                element.style.transition = "1s transform ease-out";
+                i--;
+           });
         }
 
 
@@ -152,22 +166,24 @@
 
     </script>
 
-    <audio id="audioTrack" src="music/song.mp3"></audio>
+    <audio id="audioTrack" src="music/song.mp3" preload="none"></audio>
 
     
     <div id="container">
         <div id="frame">
-            <div class="parallax-layer" id="layer-3">
-                <img src="img/3.svg" alt="" />
-                <img src="img/3.svg" alt="" />
-            </div>
-            <div class="parallax-layer" id="layer-2">
-                <img src="img/2.svg" alt="" />
-                <img src="img/2.svg" alt="" />
-            </div>
-            <div class="parallax-layer" id="layer-1">
-                <img src="img/1.svg" alt="" />
-                <img src="img/1.svg" alt="" />
+            <div id="frame-layer-wrapper">
+                <div class="parallax-layer" id="layer-3">
+                    <img src="img/3.svg" alt="" />
+                    <img src="img/3.svg" alt="" />
+                </div>
+                <div class="parallax-layer" id="layer-2">
+                    <img src="img/2.svg" alt="" />
+                    <img src="img/2.svg" alt="" />
+                </div>
+                <div class="parallax-layer" id="layer-1">
+                    <img src="img/1.svg" alt="" />
+                    <img src="img/1.svg" alt="" />
+                </div>
             </div>
         </div>
 
@@ -618,13 +634,6 @@
 
         <div class="playlist">
             
-        </div>
-        <div class="playlist2">
-
-            <button id="audioBtn" data-playing="true" role="switch" aria-checked="false">
-                <span>Play/Pause</span>
-              </button>          
-
         </div>
         <div class="playlist3">
  
