@@ -120,6 +120,17 @@
 }
 
 
+@keyframes fade-away {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+
 
 
 #player {
@@ -153,4 +164,19 @@
 
 #audioBtn {
     display: none;
+}
+
+.content1{
+    position: absolute;
+    top: 35%;
+    left: 40%;
+    width: 50%;
+}
+
+img#player-toggle{
+    position: absolute;
+    top: 220px;
+    left: -50px;
+    width: 200px;
+    animation: alternate 2s infinite bouncy ease-in-out, forwards 10s fade-away ease-in;
 }
