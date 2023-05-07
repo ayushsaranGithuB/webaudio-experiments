@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/player_v1.css">
+    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/player_v2.css">
+    <script src="js/fetchmusic.js"></script>
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png"/>
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,165 +19,33 @@
 <body>
 
     <script>
-        
-        window.addEventListener("load", function() {
 
-            // play by clicking player
-            document.querySelector("#body").addEventListener('click', function() {
-                if(headphones.style.animationPlayState == 'paused'){
-                    play();
-                }else{
-                    pause();
-                }
-            });
+        function additionalAnimation(){
 
-
-
+            
             // // move headphones
-             var headphones = document.getElementById('headphones');
+            var headphones = document.getElementById('headphones');
              var dial1 = document.getElementById('dial-1');
              var dial2 = document.getElementById('dial-2');
-             console.log(dial1);
-
-            
- // --------------- [ AUDIO SECTION ] ---------------------------
-
-            // Tutorial https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Using_Web_Audio_API
-
-            
 
 
-            function toggleAudio() {
-
-                
-            // 1. Build an AudioContext()
-            // for legacy browsers
-            const AudioContext = window.AudioContext || window.webkitAudioContext;
-            const audioContext = new AudioContext();
-
-            // get the audio element
-            const audioElement = document.getElementById("audioTrack");
-            // audioContext.close();    
-            // pass it into the audio context
-            
-            const track = '';
-
-            if(track === undefined){
-                const track = audioContext.createMediaElementSource(audioElement);
-                track.connect(audioContext.destination);
+             if(headphones.style.animationPlayState == 'paused'){
+                document.getElementById('power-btn').style.transform = "translateY(-4px)";
+                // Turn off rotating tape dials
+                document.getElementById('dial-1').style.animationPlayState = 'paused';
+                document.getElementById('dial-2').style.animationPlayState = 'paused';
+            }else{
+                document.getElementById('power-btn').style.transform = "translateY(0)";
+                // Turn ON rotating tape dials
+                document.getElementById('dial-1').style.animationPlayState = 'running';
+                document.getElementById('dial-2').style.animationPlayState = 'running';
             }
 
-
-                // Check if context is in suspended state (autoplay policy)
-                if (audioContext.state === "suspended") {
-                audioContext.resume();
-                }
-
-                // if(playButton){
-                    // Play or pause track depending on state
-                    if (headphones.style.animationPlayState == 'running') {
-                        fadeIn(audioElement,1,1,1000,50);
-                        audioElement.play();
-                        // playButton.dataset.playing = "true";
-                    } else {
-                        // audioElement.pause();
-                        fadeOut(audioElement,1,0,500,50);
-                        // playButton.dataset.playing = "false";
-                    }
-                // }
-            }
-
-            function fadeIn(audioElement, maxVol, startDelay, fadeInTime, steps) {
-                let i = 0;
-                let interval = fadeInTime / steps;
-                setTimeout(function () {
-                    let intervalId = setInterval(function() {
-                    let volume = (maxVol / steps) * i;
-                    audioElement.volume = volume;
-                    // console.log(volume);
-                    if(++i >= steps)
-                        clearInterval(intervalId);
-                    }, interval);
-                }, startDelay);
-            }
-
-            function fadeOut(audioElement, maxVol, startDelay, fadeInTime, steps) {
-                let i = 0;
-                let interval = fadeInTime / steps;
-                setTimeout(function () {
-                    let intervalId = setInterval(function() {
-                    let volume = 0.02 * i;
-                    audioElement.volume = 1 - volume;
-                    // console.log(audioElement.volume);
-                    if(++i >= steps)
-                        clearInterval(intervalId);
-                        if(audioElement.volume < 0.1)
-                            audioElement.pause();
-                    }, interval);
-                }, startDelay);
-            }
-
-            
-
-        function pause(){
-            console.log('ran pause ||');
-            nodes = document.querySelectorAll('.parallax-layer');
-            nodes.forEach(e => e.style.animationPlayState = 'paused');
-            headphones.style.animationPlayState = 'paused';
-            document.getElementById('power-btn').style.transform = "translateY(-4px)";
-            // document.getElementById('play').style.transform = "translateX(0)";
-            toggleAudio();
-
-            // Turn off rotating tape dials
-            document.getElementById('dial-1').style.animationPlayState = 'paused';
-            document.getElementById('dial-2').style.animationPlayState = 'paused';
-            
-            // Slowly Bring parallax to stop
-                easeInOutPauseScroll(10);
-        }
-
-        function play(){
-            console.log('ran play >>');
-            nodes = document.querySelectorAll('.parallax-layer');
-            nodes.forEach(e => e.style.animationPlayState = 'running');            
-            headphones.style.animationPlayState = 'running';
-            document.getElementById('power-btn').style.transform = "translateY(0)";
-            // document.getElementById('play').style.transform = "translateX(1px)";
-            toggleAudio();
-            
-            // Turn ON rotating tape dials
-            document.getElementById('dial-1').style.animationPlayState = 'running';
-            document.getElementById('dial-2').style.animationPlayState = 'running';
-
-            
-            // Slowly Bring parallax to start
-                easeInOutPauseScroll(-10);
+             
 
         }
-       function easeInOutPauseScroll(distanceInPx ){                
-            let parallaxLayers = document.querySelectorAll('.parallax-layer');
-            let i = parallaxLayers.length;
-            parallaxLayers.forEach(element => {                
-                element.style.transform = `translateX(${distanceInPx/i}px)`;
-                element.style.transition = "1s transform ease-out";
-                i--;
-           });
-        }
-
-
-        // do something here ...
-        }, false);
-
         
-
-
-       
-
-
-    </script>
-
-    <audio id="audioTrack" src="music/song.mp3" preload="none"></audio>
-
+</script>     
     
     <div id="container">
         <div id="frame">
@@ -637,8 +508,10 @@
                     </g>
                 </g>
             </svg>
-        <!-- // Buttons for Player -->
-            <img src="img/button.svg" id="player-toggle" />
+
+              <!-- // Title for Player -->
+              <img class="player-title-pill" src="/img/walkman-title.png" />
+        
         </div>
 
         <div class="content1">
@@ -650,21 +523,33 @@
         <div class="playlist">
             
         </div>
-        <div class="playlist3">
- 
+        <div class="player-2">
+            <div class="formfetch">
+                                            
+                        <form action="/" onsubmit="fetchfromAPI(); event.preventDefault();">
+                                <input type="text" name="song" id="searchBox" placeholder="Song??"/>
+                                <button id="searchSubmitBtn" onclick="fetchfromAPI();">Fetch</button>
+                        </form>
+
+                        <div class="results">
+                            <h3>Search Results...</h3>
+                            <ul>
+                            </ul>
+
+                            <textarea name="text" id="txt-area" cols="40" rows="3"></textarea>
+                        </div>        
+                        
+
+                        <button id="play" disabled>Play Track!</button>
+                        <button id="stop" disabled>STOP!</button>
+                </div>
+                
 
         </div>
 
     </div>
 
     
-    <div id="windowInfo">
-    </div>
-    <script>        
-        window.addEventListener("load", function() {
-            document.getElementById("windowInfo").innerHTML =  document.documentElement.clientWidth + ' x ' + document.documentElement.clientHeight;
-        });            
-    </script>
 
 </body>
 </html>

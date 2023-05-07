@@ -1,0 +1,15 @@
+.player-2 .formfetch .results h3 {
+    font-size: 2em;
+    margin: 50px 80px 0;
+    background-color: inherit;
+}
+
+
+.formfetch .results {
+    border-width:0;
+}
+
+
+.formfetch .results ul li{
+    background-color: #44444444;
+}

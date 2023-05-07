@@ -1,7 +1,10 @@
 
 let trackURL;
 window.addEventListener("load", function () {
-    headphones = document.querySelector("#boombox").contentDocument.querySelector("#svg-radio-body");
+
+     if(!headphones){
+        headphones = document.querySelector("#boombox").contentDocument.querySelector("#svg-radio-body");
+    }
     headphones.style.animationPlayState = 'paused';
 });
 
@@ -133,6 +136,11 @@ function pauseAnimation() {
     
     // Slowly Bring parallax to stop
     easeInOutAnimation(10);
+
+    //Any Additional Animation from file
+    if(additionalAnimation){
+        additionalAnimation();
+    }
 }
 
 function playAnimation() {
@@ -143,6 +151,11 @@ function playAnimation() {
     
     // Slowly Bring parallax to start
     easeInOutAnimation(-10);
+
+    //Any Additional Animation from file
+    if(additionalAnimation){
+        additionalAnimation();
+    }
 
 }
 function easeInOutAnimation(distanceInPx) {
