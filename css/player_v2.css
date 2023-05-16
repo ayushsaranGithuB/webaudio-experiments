@@ -13,3 +13,9 @@
 .formfetch .results ul li{
     background-color: #44444444;
 }
+
+@media (max-width:600px){
+.player-2{
+    margin-top: 100px;
+}
+}
