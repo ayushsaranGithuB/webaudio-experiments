@@ -7,9 +7,6 @@ main{
     
     background-color:var(--stage-background-color);
     color: var(--primary-text);
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: flex-start;
 }
 
 .stage {

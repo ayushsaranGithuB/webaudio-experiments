@@ -5,15 +5,17 @@
     --hoverDark: #323131d7;
 }
 
-main{
-    padding-top: 50px;
+.controls{
+    display: none;
 }
 
 .playlist {
     min-height: 110px;
     width: 50%;
+    min-width: 350px;
     border-bottom: 1vw solid #2d2f46;
-    margin: 0 30px;
+    margin: 50px 30px;
+    z-index: 3;
 }
 
 .curPlaylist {
@@ -101,7 +103,7 @@ main{
                 font-size: 1.5em;
                 order: 5;
                 margin-left: auto;
-                flex-basis: 10%;
+                flex-basis: 15%;
             }
 
             li.track p.album{
