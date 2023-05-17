@@ -14,6 +14,88 @@
     <script src="js/player-boombox.js"></script>
 
     <script src="js/howler.min.js"></script>
+    <script>
+
+        var playlist = [
+            '../music/aesthetics-138637.mp3',
+            'https://example.com/world.mp3',
+            'https://example.com/music.mp3'
+        ]
+
+
+        function autoplay(i, list) {
+            var sound = new Howl({
+                src: [list[i]],
+                preload: true,
+                onend: function () {
+                    if ((i + 1) == list.length) {
+                        autoplay(0, list)
+                    } else {
+                        autoplay(i + 1, list)
+                    }
+                }
+            })
+            sound.play();
+        }
+
+        function stop() {
+            if (sound) {
+                sound.stop();
+                sound = null;
+            }
+        }
+
+        class MusicPlayer {
+            constructor(list) {
+                this.list = list;
+                this.sound = null;
+            }
+
+            autoplay(i = 0) {
+                if (this.sound){                    
+                    this.sound.play();
+                    return true;
+                }
+
+                const url = this.list[i];
+                this.sound = new Howl({
+                    src: [url],
+                    preload: true,
+                    onend: () => {
+                        i = (i + 1) % this.list.length;
+                        this.autoplay();
+                    }
+                });
+                this.sound.play();
+            }
+
+            stop() {
+                if (this.sound) {
+                    this.sound.stop();
+                    this.sound = null;
+                }
+            }
+
+            pause() {
+                if (this.sound) {
+                    this.sound.pause();
+                }
+            }
+
+        }
+
+        const list = [
+            '../music/aesthetics-138637.mp3',
+            'https://example.com/world.mp3',
+            'https://example.com/music.mp3'
+        ];
+
+        const musicPlayer = new MusicPlayer(list);
+                    // musicPlayer.autoplay();
+
+
+
+    </script>
 
 </head>
 
@@ -38,7 +120,7 @@
     </header>
 
     <main>
-        <div class="column">        
+        <div class="column">
             <section class="stage">
                 <div class="frame">
                     <div class="frame-layer-wrapper">
@@ -344,7 +426,8 @@
                                 <path class="st2"
                                     d="M55.9,188.9l-12.2,0.1c-1.7,0-3,1.4-3,3.1c0,1.7,1.4,3,3.1,3l12.2-0.1L55.9,188.9z" />
                             </g>
-                            <path class="st4" d="M43.7,195l12.2-0.1l101.4-0.6c0.7,0,1.4-0.3,1.9-0.7l92-0.5c0.6,0,1.2-0.3,1.6-0.7l99.3-0.6
+                            <path class="st4"
+                                d="M43.7,195l12.2-0.1l101.4-0.6c0.7,0,1.4-0.3,1.9-0.7l92-0.5c0.6,0,1.2-0.3,1.6-0.7l99.3-0.6
                             c0.6,1.1,1.7,1.8,3.1,1.8l1.5,0c1.9,0,3.5-1.6,3.5-3.5L40.7,192C40.7,193.7,42,195,43.7,195z" />
                         </g>
                         <g>
@@ -1354,7 +1437,8 @@
                             c0-0.7-0.6-1.2-1.2-1.2H197.2z" />
                             <path class="st17"
                                 d="M255.1,301.2v2.2H196v-2.2c0-0.7,0.6-1.2,1.2-1.2h56.6C254.5,299.9,255.1,300.5,255.1,301.2z" />
-                            <path class="st8" d="M196,301.2v21.2c0,0.7,0.6,1.2,1.2,1.2h56.6c0.3,0,0.7-0.1,0.9-0.4l1,1c-0.5,0.5-1.1,0.8-1.9,0.8h-56.6
+                            <path class="st8"
+                                d="M196,301.2v21.2c0,0.7,0.6,1.2,1.2,1.2h56.6c0.3,0,0.7-0.1,0.9-0.4l1,1c-0.5,0.5-1.1,0.8-1.9,0.8h-56.6
                             c-1.5,0-2.6-1.2-2.6-2.7v-21.2c0-0.7,0.3-1.4,0.8-1.9l1,1C196.1,300.5,196,300.8,196,301.2z" />
                             <path class="st3" d="M253.9,298.5c1.5,0,2.7,1.2,2.7,2.7v21.2c0,0.7-0.3,1.4-0.8,1.9l-1-1c0.2-0.2,0.4-0.5,0.4-0.9v-21.2
                             c0-0.7-0.6-1.2-1.2-1.2h-56.6c-0.3,0-0.7,0.1-0.9,0.4l-1-1c0.5-0.5,1.1-0.8,1.9-0.8H253.9z" />
@@ -1388,7 +1472,8 @@
                                     d="M204.6,308.9c-1.6,1.6-1.6,4.2,0,5.8c1.6,1.6,4.2,1.6,5.8,0L204.6,308.9z" />
                                 <path class="st23" d="M207.5,309c-1.5,0-2.8,1.3-2.8,2.8c0,1.5,1.3,2.8,2.8,2.8c1.5,0,2.8-1.3,2.8-2.8
                                 C210.3,310.3,209,309,207.5,309z" />
-                                <path class="st22" d="M205.5,309.8c-1.1,1.1-1.1,2.9,0,4c1.1,1.1,2.9,1.1,4,0L205.5,309.8z" />
+                                <path class="st22"
+                                    d="M205.5,309.8c-1.1,1.1-1.1,2.9,0,4c1.1,1.1,2.9,1.1,4,0L205.5,309.8z" />
                                 <path class="st24" d="M207.5,310.4c-0.8,0-1.4,0.6-1.4,1.4c0,0.8,0.6,1.4,1.4,1.4c0.8,0,1.4-0.6,1.4-1.4
                                 C208.9,311,208.2,310.4,207.5,310.4z" />
                             </g>
@@ -1558,7 +1643,8 @@
                             <rect x="124.4" y="209.1" class="st30" width="202.4" height="18.6" />
                             <polygon class="st31"
                                 points="124.4,209.1 124.4,210.6 325.2,210.6 325.2,226.1 326.7,227.7 326.7,209.1 		" />
-                            <polygon class="st36" points="325.2,225.9 124.4,225.9 124.4,227.7 124.3,227.7 326.7,227.7 		" />
+                            <polygon class="st36"
+                                points="325.2,225.9 124.4,225.9 124.4,227.7 124.3,227.7 326.7,227.7 		" />
                             <rect x="132.1" y="220.5" class="st40" width="186.8" height="1.3" />
                             <rect x="132.1" y="219.8" class="st41" width="186.8" height="1.3" />
                             <rect x="132.1" y="214.5" class="st41" width="0.5" height="4.1" />
@@ -1625,20 +1711,23 @@
                         <g>
                             <path class="st9" d="M141.3,238.1c0,3.8-3.1,6.9-6.9,6.9c-3.8,0-6.9-3.1-6.9-6.9c0-3.8,3.1-6.9,6.9-6.9
                             C138.2,231.2,141.3,234.3,141.3,238.1z" />
-                            <path class="st2" d="M137.4,231.9h-3c-3.4,0-6.1,2.7-6.1,6.1c0,3.4,2.7,6.1,6.1,6.1h3V231.9z" />
+                            <path class="st2"
+                                d="M137.4,231.9h-3c-3.4,0-6.1,2.7-6.1,6.1c0,3.4,2.7,6.1,6.1,6.1h3V231.9z" />
                             <path class="st6" d="M137.4,238.1h-9.1c0,3.4,2.7,6.1,6.1,6.1h3V238.1z" />
                             <path class="st6" d="M137.4,238.1h-9.1c0,3.4,2.7,6.1,6.1,6.1h3V238.1z" />
                             <path class="st3" d="M129.8,242.1c1.1,1.3,2.8,2.1,4.6,2.1h3v-2.1H129.8z" />
                             <path class="st4" d="M129.8,234c1.1-1.3,2.8-2.1,4.6-2.1h3v2.1H129.8z" />
                             <circle class="st8" cx="137.4" cy="238.1" r="6.1" />
 
-                            <rect x="138.4" y="235.4" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -125.7541 167.8534)"
-                                class="st43" width="2.6" height="0.7" />
+                            <rect x="138.4" y="235.4"
+                                transform="matrix(0.7071 -0.7071 0.7071 0.7071 -125.7541 167.8534)" class="st43"
+                                width="2.6" height="0.7" />
                         </g>
                         <g>
                             <path class="st9" d="M161.6,238.1c0,3.8-3.1,6.9-6.9,6.9c-3.8,0-6.9-3.1-6.9-6.9c0-3.8,3.1-6.9,6.9-6.9
                             C158.5,231.2,161.6,234.3,161.6,238.1z" />
-                            <path class="st2" d="M157.7,231.9h-3c-3.4,0-6.1,2.7-6.1,6.1c0,3.4,2.7,6.1,6.1,6.1h3V231.9z" />
+                            <path class="st2"
+                                d="M157.7,231.9h-3c-3.4,0-6.1,2.7-6.1,6.1c0,3.4,2.7,6.1,6.1,6.1h3V231.9z" />
                             <path class="st6" d="M157.7,238.1h-9.1c0,3.4,2.7,6.1,6.1,6.1h3V238.1z" />
                             <path class="st6" d="M157.7,238.1h-9.1c0,3.4,2.7,6.1,6.1,6.1h3V238.1z" />
                             <path class="st3" d="M150.1,242.1c1.1,1.3,2.8,2.1,4.6,2.1h3v-2.1H150.1z" />
@@ -1817,151 +1906,154 @@
                 </svg>
 
             </section><!-- /player -->
-    
+
 
             <section class="controls AnimationControls">
                 <div class="controlBox">
                     <form action="/">
                         <input type="button" value="Play Anim &#x23F5;" name="btn_play" onclick=" playAnimation();" />
-                        <input type="button" value="Pause Anim  &#x23F8;" name="btn_pause" onclick=" pauseAnimation();" />
-                        <input type="button" value="Toggle Anim  &#x23F8;" name="btn_toggle" onclick=" toggleAnimation();" />
+                        <input type="button" value="Pause Anim  &#x23F8;" name="btn_pause"
+                            onclick=" pauseAnimation();" />
+                        <input type="button" value="Toggle Anim  &#x23F8;" name="btn_toggle"
+                            onclick=" toggleAnimation();" />
                     </form>
                 </div>
             </section><!-- /controls -->
         </div>
 
-        
-            <section class="playlist">
-                <section class="controls">
-                    <div class="controlBox">
-                        <form action="/">
-                            <input type="button" value="&#x23EA; Back" name="btn_back" />
-                            <input type="button" value="Play &#x23F5;" name="btn_play" />
-                            <input type="button" value="Pause  &#x23F8;" name="btn_pause" />
-                            <input type="button" value="Forward  &#x23E9;" name="btn_forward" />
-                        </form>
-                    </div>
-                </section><!-- /controls -->
-        
-                <ul class="curPlaylist">
-                    <li class="title">
-                        <h2>
-                            Classic 90s Pop Sensations
-                        </h2>
-                    </li>
-                    <li class="track">
-                        <p class="artist">
-                            Shaggy + Lil Ricky
-                        </p>
-                        <p class="title">
-                            "It Wasn't Me"
-                        </p>
-                        <p class="duration">
-                            3:48
-                        </p>
-                        <p class="album">
-                            The Boombastic Collection - Best Of Shaggy (International Version)
-                        </p>
-                        <p class="year">
-                            1999
-                        </p>
-                        </p>
-                    </li>
-                    <li class="track">
-                        <p class="artist">
-                            Shaggy + Lil Ricky
-                        </p>
-                        <p class="title">
-                            "It Wasn't Me"
-                        </p>
-                        <p class="duration">
-                            3:48
-                        </p>
-                        <p class="album">
-                            The Boombastic Collection - Best Of Shaggy (International Version)
-                        </p>
-                        <p class="year">
-                            1999
-                        </p>
-                        </p>
-                    </li>
-                    <li class="track">
-                        <p class="artist">
-                            Shaggy + Lil Ricky
-                        </p>
-                        <p class="title">
-                            "It Wasn't Me"
-                        </p>
-                        <p class="duration">
-                            3:48
-                        </p>
-                        <p class="album">
-                            The Boombastic Collection - Best Of Shaggy (International Version)
-                        </p>
-                        <p class="year">
-                            1999
-                        </p>
-                        </p>
-                    </li>
-                    <li class="track">
-                        <p class="artist">
-                            Shaggy + Lil Ricky
-                        </p>
-                        <p class="title">
-                            "It Wasn't Me"
-                        </p>
-                        <p class="duration">
-                            3:48
-                        </p>
-                        <p class="album">
-                            The Boombastic Collection - Best Of Shaggy (International Version)
-                        </p>
-                        <p class="year">
-                            1999
-                        </p>
-                        </p>
-                    </li>
-                    <li class="track">
-                        <p class="artist">
-                            Shaggy + Lil Ricky
-                        </p>
-                        <p class="title">
-                            "It Wasn't Me"
-                        </p>
-                        <p class="duration">
-                            3:48
-                        </p>
-                        <p class="album">
-                            The Boombastic Collection - Best Of Shaggy (International Version)
-                        </p>
-                        <p class="year">
-                            1999
-                        </p>
-                        </p>
-                    </li>
-                    <li class="track">
-                        <p class="artist">
-                            Shaggy + Lil Ricky
-                        </p>
-                        <p class="title">
-                            "It Wasn't Me"
-                        </p>
-                        <p class="duration">
-                            3:48
-                        </p>
-                        <p class="album">
-                            The Boombastic Collection - Best Of Shaggy (International Version)
-                        </p>
-                        <p class="year">
-                            1999
-                        </p>
-                        </p>
-                    </li>
-                </ul>
-            </section><!-- /playlist -->
-    
-     
-        
+
+        <section class="playlist">
+            <section class="controls">
+                <div class="controlBox">
+                    <form action="/">
+                        <input type="button" value="&#x23EA; Back" name="btn_back" />
+                        <input type="button" value="Play &#x23F5;" name="btn_play" onclick="musicPlayer.autoplay()" />
+                        <input type="button" value="Pause  &#x23F8;" name="btn_pause" onclick="musicPlayer.pause()" />
+                        <input type="button" value="STOP  &#x23F9;" name="btn_pause" onclick="musicPlayer.stop()" />
+                        <input type="button" value="Forward  &#x23E9;" name="btn_forward" />
+                    </form>
+                </div>
+            </section><!-- /controls -->
+
+            <ul class="curPlaylist">
+                <li class="title">
+                    <h2>
+                        Classic 90s Pop Sensations
+                    </h2>
+                </li>
+                <li class="track">
+                    <p class="artist">
+                        Shaggy + Lil Ricky
+                    </p>
+                    <p class="title">
+                        "It Wasn't Me"
+                    </p>
+                    <p class="duration">
+                        3:48
+                    </p>
+                    <p class="album">
+                        The Boombastic Collection - Best Of Shaggy (International Version)
+                    </p>
+                    <p class="year">
+                        1999
+                    </p>
+                    </p>
+                </li>
+                <li class="track">
+                    <p class="artist">
+                        Shaggy + Lil Ricky
+                    </p>
+                    <p class="title">
+                        "It Wasn't Me"
+                    </p>
+                    <p class="duration">
+                        3:48
+                    </p>
+                    <p class="album">
+                        The Boombastic Collection - Best Of Shaggy (International Version)
+                    </p>
+                    <p class="year">
+                        1999
+                    </p>
+                    </p>
+                </li>
+                <li class="track">
+                    <p class="artist">
+                        Shaggy + Lil Ricky
+                    </p>
+                    <p class="title">
+                        "It Wasn't Me"
+                    </p>
+                    <p class="duration">
+                        3:48
+                    </p>
+                    <p class="album">
+                        The Boombastic Collection - Best Of Shaggy (International Version)
+                    </p>
+                    <p class="year">
+                        1999
+                    </p>
+                    </p>
+                </li>
+                <li class="track">
+                    <p class="artist">
+                        Shaggy + Lil Ricky
+                    </p>
+                    <p class="title">
+                        "It Wasn't Me"
+                    </p>
+                    <p class="duration">
+                        3:48
+                    </p>
+                    <p class="album">
+                        The Boombastic Collection - Best Of Shaggy (International Version)
+                    </p>
+                    <p class="year">
+                        1999
+                    </p>
+                    </p>
+                </li>
+                <li class="track">
+                    <p class="artist">
+                        Shaggy + Lil Ricky
+                    </p>
+                    <p class="title">
+                        "It Wasn't Me"
+                    </p>
+                    <p class="duration">
+                        3:48
+                    </p>
+                    <p class="album">
+                        The Boombastic Collection - Best Of Shaggy (International Version)
+                    </p>
+                    <p class="year">
+                        1999
+                    </p>
+                    </p>
+                </li>
+                <li class="track">
+                    <p class="artist">
+                        Shaggy + Lil Ricky
+                    </p>
+                    <p class="title">
+                        "It Wasn't Me"
+                    </p>
+                    <p class="duration">
+                        3:48
+                    </p>
+                    <p class="album">
+                        The Boombastic Collection - Best Of Shaggy (International Version)
+                    </p>
+                    <p class="year">
+                        1999
+                    </p>
+                    </p>
+                </li>
+            </ul>
+        </section><!-- /playlist -->
+
+
+
 
         <section class="browse"></section>
     </main>
