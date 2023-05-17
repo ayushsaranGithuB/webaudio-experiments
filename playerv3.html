@@ -9,15 +9,56 @@
     <link rel="stylesheet" href="css/form.css">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png"/>
     
-    <script src="js/fetchmusic.js"></script>
+    <script src="js/gpt_fetch.js"></script>
    </head>
 <body>
 
+    <script>
+window.addEventListener("load", function () {
+
+   headphones = document.querySelector("#boombox").contentDocument.querySelector("#svg-radio-body");
+   headphones.style.animationPlayState = 'paused';
+   let spk1 = headphones.querySelector("#stereo-l");
+    let spk2 = headphones.querySelector("#stereo-r");
+
+   spk1.style.animationPlayState = 'paused';
+   spk2.style.animationPlayState = 'paused';
+
+});
+
+        function additionalAnimation(){
+
+            
+            // // move headphones
+            headphones = document.querySelector("#boombox").contentDocument.querySelector("#svg-radio-body");
+             spk1 = headphones.querySelector("#stereo-l");
+             spk2 = headphones.querySelector("#stereo-r");
+
+             if(headphones.style.animationPlayState == 'paused'){
+                // document.getElementById('power-btn').style.transform = "translateY(-4px)";
+                // // Turn off speakers 
+                spk1.style.animationPlayState = 'paused';
+                spk2.style.animationPlayState = 'paused';
+            }else{
+                   // // Turn ON speakers 
+                   spk1.style.animationPlayState = 'running';
+                    spk2.style.animationPlayState = 'running';
+            }
+
+             
+
+        }
+        
+</script>     
    
 
     <div class="stage">
         <div class="frame">
             <div class="frame-layer-wrapper">
+                <div class="parallax-layer" id="layer-4">
+                    <img src="img/a4.svg" alt="" />
+                    <img src="img/a4.svg" alt="" />
+                </div>
                 <div class="parallax-layer" id="layer-3">
                     <img src="img/a3.svg" alt="" />
                     <img src="img/a3.svg" alt="" />
@@ -37,17 +78,16 @@
 
         <div id="player3" >
             <object  id="boombox" data="img/boombox2.svg" type="image/svg+xml" ></object>   <!-- // Buttons for Player -->
-            <img src="img/button.svg" id="player-toggle" />
-            <img class="player-title-pill" src="/img/walkman-title.png" />
+
         </div>
 
        <div class="playlist"></div>
 
        <div class="formfetch">
                                 
-            <form action="/" onsubmit="fetchfromAPI(); event.preventDefault();">
+            <form action="/" onsubmit="event.preventDefault();">
                     <input type="text" name="song" id="searchBox" placeholder="Song??"/>
-                    <button id="searchSubmitBtn" onclick="fetchfromAPI();">Fetch</button>
+                    <button id="searchSubmitBtn">Fetch</button>
             </form>
 
             <div class="results">

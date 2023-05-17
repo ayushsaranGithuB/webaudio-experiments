@@ -1,15 +1,18 @@
-#player3{    
-    min-width: 300px;
-    max-width: 600px;
-    position: absolute;
-    z-index: 2;
-    cursor: pointer;
-    outline: none;
-    -webkit-tap-highlight-color: transparent;
-    width: 60%;
+:root{
+    --stage-background-color: #363a66;
+    --primary-text: #ffffff;
 }
+
+main{
+    
+    background-color:var(--stage-background-color);
+    color: var(--primary-text);
+    flex-direction: row;
+    justify-content: space-around;
+}
+
 .stage {
-    background-color: #363a66; 
+    background-color:var(--stage-background-color);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,7 +21,7 @@
     margin: 0 auto;
     position: relative;
     max-width: 1400px;
-    min-height: 900px;
+    min-height: 60vh;
 }
 
 .frame{
@@ -40,11 +43,64 @@
     filter: none;
 }
 
-.playlist{    
-    height: min(3vw,110px);
+
+/* CONTROLS */
+
+.controls{
+    position: relative;
+    z-index: 4;
+    padding: 50px 0;
+    margin-top: 100px;
+}
+
+    .controls form{
+        background-color: #2b2b2b1e;
+        border: 2px solid #8282823a;
+        border-radius: 8px;
+        padding: 1em;
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 60vw;
+    }
+
+    .controls form input{
+        padding: 0.5em 1em;
+        border-radius: 8px;
+        border-width: 0;
+        margin: .5em;
+        cursor: pointer;
+    }
+
+
+/* PLAYER */
+
+#player3, #svg-radio{    
+    min-width: 300px;
+    max-width: 600px;
+    z-index: 2;
+    cursor: pointer;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    width: 60%;
+}
+
+#svg-radio{
+
+}
+
+.stage+.player{
+    margin-top:  min(2vh,-516px);
     width: 100%;
-    border-bottom: 1vw solid #2d2f46;
-    background-color: #3c3f60;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:var(--stage-background-color);
+    min-height: 20vh;
+}
+
+
+
+.playlist{    
 }
 
 
@@ -57,36 +113,53 @@
 .frame .parallax-layer {
     position: absolute;
     bottom: 0;
-    right: 0;
-    display: flex;
+    left: 0;
+    display: flex;    
+    width: 1200px;
 }
 
+/* ANIMATION FOR LAYERS */
+
+    /* Variables */
+    .frame{
+        --baseSpeed: 20s;
+
+        --speed1: calc(2 * var(--baseSpeed));
+        --speed2: calc(3.5 * var(--baseSpeed));
+        --speed3: calc(5 * var(--baseSpeed));
+        --speed4: calc(8 * var(--baseSpeed));
+
+
+    }
+
 #layer-1 {
-    animation: scroll-right 20s infinite linear;
-    width: 1200px;
+    animation: scroll-right var(--speed1) infinite linear;
     animation-play-state: paused;
 }
 
 #layer-2 {
-    animation: scroll-right 35s infinite linear;
-    width: 1200px;
+    animation: scroll-right var(--speed2) infinite linear;
     animation-play-state: paused;
 }
 
 #layer-3 {
-    animation: scroll-right 50s infinite linear;
-    width: 1200px;
+    animation: scroll-right var(--speed3) infinite linear;
+    animation-play-state: paused;
+}
+
+#layer-4 {
+    animation: scroll-right var(--speed4) infinite linear;
     animation-play-state: paused;
 }
 
 
 @keyframes scroll-right {
     from {
-        right: 1200px;
+        left: 0px;
     }
 
     to {
-        right: 0px;
+        left: -1200px;
     }
 }
 

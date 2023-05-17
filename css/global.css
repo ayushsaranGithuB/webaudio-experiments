@@ -1,0 +1,158 @@
+:root {
+    /* COLOR SCHEME */
+
+    --light1: #FFFFFFff;
+    --sage: #AFAD94ff;
+    --gray1: #8c9b99;
+    --gray: #7A7E81ff;
+    --satin-sheen-gold: #D5A54Bff;
+    --ash-gray: #A2AB9Aff;
+    --dark1: #111212;
+    --dark2: #3f3f3f;
+    --dark3: #6c6c6c;
+}
+
+
+
+body {
+    background-color: var(--dark2);
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+#container, main {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 400px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;   
+    
+}
+
+
+
+
+/* Utitlity Clases */
+
+    .limitedWidth{    
+        max-width: 1140px;
+        padding:0 30px;
+        margin: 0 auto;
+    }
+
+/* -------------------- NAVIGATION -------------------- */
+
+header{
+    width: 100%;
+}
+
+nav.limitedWidth{
+    display: flex;
+    justify-content: flex-start;
+    padding:20px 30px 10px;
+    background-color:var(--dark1);
+    width: 100%;
+    font-size: 0.85em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+nav .logo{
+    /* background: url("../img/logo.png") 0 0 no-repeat; */
+    background-size: contain;
+    display: block;    
+    font-weight: bold;    
+}
+
+nav input[type=checkbox] {
+    display: none;
+}
+
+nav input[type=checkbox]:checked~.menu {
+    display: block;
+}
+
+nav .burger{
+    display: none;
+    margin: 13px 0 0 auto;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+nav .menu{    
+    margin-left: auto;
+}
+
+nav ul{
+    display: flex;
+    width: 30%;
+    justify-content: space-between;
+    margin-top: 0px;
+    padding: 0;
+}
+
+nav ul li{
+    list-style: none;
+    font-weight: bold;
+}
+
+nav a:link,nav a:visited {
+    color: var(--light1);
+    font-weight: normal;
+    text-decoration: none;
+}
+
+
+nav ul li a:hover{
+    border-bottom: 2px solid var(--link);
+}
+
+/* Mobile Navigation */
+@media (max-width: 680px) {
+    nav .burger{
+        display: block;
+    }
+
+    nav .menu{
+        display: none;
+    }
+
+    nav ul{
+        position: absolute;
+        top: 84px;
+        left: 0;
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+        background-color: var(--dark);
+        padding: 20px 0;
+        margin: 0;
+        z-index: 3;
+    }
+
+    nav ul li{
+        padding: 20px 0;
+    }
+
+    nav ul li a{
+        padding: 20px 0;
+    }
+    
+
+    nav ul li a:link, nav ul li a:visited {
+        color: var(--primary);        
+    }
+
+    nav ul li a:hover, nav ul li a:active {
+        color: var(--lighter);
+        border: none;        
+    }
+
+
+}

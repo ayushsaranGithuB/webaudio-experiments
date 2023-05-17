@@ -57,6 +57,8 @@
 	.st51{fill:#FAAF40;}
 	.st52{fill:#77787B;}
 	*{cursor:pointer}
+	#stereo-l,#stereo-r {animation: alternate 1s infinite bounce ease-in-out;}
+	@keyframes bounce {from {transform: scale(1)} to { transform: scale(0.992); }}
 </style>
 <path id="svg-radioshadow" class="st0" d="M28.4,190c0-0.1-0.1-0.1-0.1-0.2c-0.1-0.1-0.2-0.2-0.2-0.3c0,0-0.1-0.1-0.1-0.1
 	c-0.1-0.1-0.2-0.2-0.3-0.3c0,0,0-0.1-0.1-0.1c-0.1-0.1-0.2-0.2-0.4-0.3c0,0,0,0,0,0c-0.1-0.1-0.3-0.2-0.4-0.3c0,0,0,0,0,0
