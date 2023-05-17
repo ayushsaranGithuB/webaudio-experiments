@@ -14,86 +14,23 @@
     <script src="js/player-boombox.js"></script>
 
     <script src="js/howler.min.js"></script>
+
+    <script src="js/playlist.js"></script>
     <script>
+    let musicPlayer;
+     
+window.addEventListener("load", function () {
+    
+    loadPlaylistfromAPIResult();     
+    
+    musicPlayer = new MusicPlayer(newPlaylist);
 
-        var playlist = [
-            '../music/aesthetics-138637.mp3',
-            'https://example.com/world.mp3',
-            'https://example.com/music.mp3'
-        ]
-
-
-        function autoplay(i, list) {
-            var sound = new Howl({
-                src: [list[i]],
-                preload: true,
-                onend: function () {
-                    if ((i + 1) == list.length) {
-                        autoplay(0, list)
-                    } else {
-                        autoplay(i + 1, list)
-                    }
-                }
-            })
-            sound.play();
-        }
-
-        function stop() {
-            if (sound) {
-                sound.stop();
-                sound = null;
-            }
-        }
-
-        class MusicPlayer {
-            constructor(list) {
-                this.list = list;
-                this.sound = null;
-            }
-
-            autoplay(i = 0) {
-                if (this.sound){                    
-                    this.sound.play();
-                    return true;
-                }
-
-                const url = this.list[i];
-                this.sound = new Howl({
-                    src: [url],
-                    preload: true,
-                    onend: () => {
-                        i = (i + 1) % this.list.length;
-                        this.autoplay();
-                    }
-                });
-                this.sound.play();
-            }
-
-            stop() {
-                if (this.sound) {
-                    this.sound.stop();
-                    this.sound = null;
-                }
-            }
-
-            pause() {
-                if (this.sound) {
-                    this.sound.pause();
-                }
-            }
-
-        }
-
-        const list = [
-            '../music/aesthetics-138637.mp3',
-            'https://example.com/world.mp3',
-            'https://example.com/music.mp3'
-        ];
-
-        const musicPlayer = new MusicPlayer(list);
-                    // musicPlayer.autoplay();
+    console.log(musicPlayer);
+    // musicPlayer.autoplay();
 
 
+
+});
 
     </script>
 
@@ -1936,119 +1873,7 @@
             </section><!-- /controls -->
 
             <ul class="curPlaylist">
-                <li class="title">
-                    <h2>
-                        Classic 90s Pop Sensations
-                    </h2>
-                </li>
-                <li class="track">
-                    <p class="artist">
-                        Shaggy + Lil Ricky
-                    </p>
-                    <p class="title">
-                        "It Wasn't Me"
-                    </p>
-                    <p class="duration">
-                        3:48
-                    </p>
-                    <p class="album">
-                        The Boombastic Collection - Best Of Shaggy (International Version)
-                    </p>
-                    <p class="year">
-                        1999
-                    </p>
-                    </p>
-                </li>
-                <li class="track">
-                    <p class="artist">
-                        Shaggy + Lil Ricky
-                    </p>
-                    <p class="title">
-                        "It Wasn't Me"
-                    </p>
-                    <p class="duration">
-                        3:48
-                    </p>
-                    <p class="album">
-                        The Boombastic Collection - Best Of Shaggy (International Version)
-                    </p>
-                    <p class="year">
-                        1999
-                    </p>
-                    </p>
-                </li>
-                <li class="track">
-                    <p class="artist">
-                        Shaggy + Lil Ricky
-                    </p>
-                    <p class="title">
-                        "It Wasn't Me"
-                    </p>
-                    <p class="duration">
-                        3:48
-                    </p>
-                    <p class="album">
-                        The Boombastic Collection - Best Of Shaggy (International Version)
-                    </p>
-                    <p class="year">
-                        1999
-                    </p>
-                    </p>
-                </li>
-                <li class="track">
-                    <p class="artist">
-                        Shaggy + Lil Ricky
-                    </p>
-                    <p class="title">
-                        "It Wasn't Me"
-                    </p>
-                    <p class="duration">
-                        3:48
-                    </p>
-                    <p class="album">
-                        The Boombastic Collection - Best Of Shaggy (International Version)
-                    </p>
-                    <p class="year">
-                        1999
-                    </p>
-                    </p>
-                </li>
-                <li class="track">
-                    <p class="artist">
-                        Shaggy + Lil Ricky
-                    </p>
-                    <p class="title">
-                        "It Wasn't Me"
-                    </p>
-                    <p class="duration">
-                        3:48
-                    </p>
-                    <p class="album">
-                        The Boombastic Collection - Best Of Shaggy (International Version)
-                    </p>
-                    <p class="year">
-                        1999
-                    </p>
-                    </p>
-                </li>
-                <li class="track">
-                    <p class="artist">
-                        Shaggy + Lil Ricky
-                    </p>
-                    <p class="title">
-                        "It Wasn't Me"
-                    </p>
-                    <p class="duration">
-                        3:48
-                    </p>
-                    <p class="album">
-                        The Boombastic Collection - Best Of Shaggy (International Version)
-                    </p>
-                    <p class="year">
-                        1999
-                    </p>
-                    </p>
-                </li>
+              
             </ul>
         </section><!-- /playlist -->
 

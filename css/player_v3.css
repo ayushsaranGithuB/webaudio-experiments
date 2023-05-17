@@ -9,6 +9,7 @@ main{
     color: var(--primary-text);
     flex-direction: row;
     justify-content: space-around;
+    align-items: flex-start;
 }
 
 .stage {
@@ -46,11 +47,13 @@ main{
 
 /* CONTROLS */
 
+.player + .controls{    
+    margin-top: 100px;
+}
 .controls{
     position: relative;
     z-index: 4;
     padding: 50px 0;
-    margin-top: 100px;
 }
 
     .controls form{
