@@ -1,7 +1,7 @@
 window.addEventListener("load", function () {
-    if(!headphones){
-        headphones = document.querySelector("#boombox").contentDocument.querySelector("#svg-radio-body");
-    }
+    
+    headphones = document.querySelector("#boombox").contentDocument.querySelector("#svg-radio-body");
+    
     headphones.style.animationPlayState = 'paused';
 
     headphones.addEventListener('click',() =>{
