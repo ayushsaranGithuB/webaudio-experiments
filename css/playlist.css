@@ -1,3 +1,14 @@
+:root{
+    /* COLOR Variables */
+    --playlist-base:  #2b2b2b;
+    --borders: #fffFFF48;
+    --hoverDark: #323131d7;
+}
+
+main{
+    padding-top: 50px;
+}
+
 .playlist {
     min-height: 110px;
     width: 50%;
@@ -15,20 +26,21 @@
     .playlist ul {
         margin: 0;
         padding: 0;
-        background-color: #2b2b2b;
+        background-color: var(--playlist-base);
     }
 
         .playlist  li {
-            padding:  0 0 0 1em;
+            padding:  0;
             list-style: none;
-            margin: 0 0 2em 0;
+            margin: 0;
         }
 
         li.playlistTitle{
             padding:  2em;
             position: relative;
             padding-left: 140px;
-            border-bottom: 1px solid #fffFFF48;
+            border-bottom: 1px solid var(--borders);
+            margin: 0 0 2em 0;
         }
             li.playlistTitle h2{
                 margin: 0;
@@ -40,10 +52,26 @@
             }
 
         li.track{
-            margin: 0 0 2em 0;
+            padding: 1em 0 1em 1.5em;
             display: flex;
             font-size: 0.625em;  
-            column-gap: 10px;              
+            column-gap: 10px;  
+            cursor: pointer;
+        }
+
+        li.track:hover{            
+            /* background-color: #201f1f; */
+        }
+
+        li.track {
+            transition: box-shadow 500ms ease-in-out;
+             
+        }
+
+        li.track:hover{
+            box-shadow: 0px 0px 4px 1px #00000036;      
+            background-color: var(--hoverDark);      
+            transition:  background-color 500ms ease-in-out;
         }
 
             .playlist ul li p{    
@@ -59,7 +87,7 @@
             }
             /* track title */
             li.track h5{
-                font-size: 1.6em;
+                font-size: 1.4em;
                 margin: 0;
                 font-weight: normal;
             }
@@ -85,3 +113,28 @@
             li.track img.cover{
                 order: 1;                
             }
+
+
+        li.selected{
+            animation:  gradientprogress 31s linear;
+            background: linear-gradient(
+                to right, 
+                var(--playlist-base),
+                var(--playlist-base) 50%,
+                var(--hoverDark) 50%,
+                var(--hoverDark)
+              );
+              background-size: 200% 100%;
+        }
+
+
+        
+@keyframes gradientprogress {
+    from {
+        background-position-x: 0;
+    }
+
+    to {
+        background-position-x: -100%;
+    }
+}

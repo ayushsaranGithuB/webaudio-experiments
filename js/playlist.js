@@ -1117,6 +1117,7 @@ apiResult = {
 //Function to build comma seperated array from JSON Object
 const tracks = apiResult.tracks.data;
 let newPlaylist = [];
+
 const playlistTitle = apiResult.title;
 const playlistDescription = apiResult.description;
 const numberOfTracks = apiResult.nb_tracks;
@@ -1125,23 +1126,72 @@ class MusicPlayer {
     constructor(list) {
         this.list = list;
         this.sound = null;
+        this.isPaused = false;
     }
 
     autoplay(i = 0) {
         if (this.sound){                    
-            this.sound.stop();
+          this.sound.stop();
         }
+        
+        let newi = i+2;
+        let selectedLI = document.querySelector('li.track:nth-child('+newi+')');
+        // console.log(selectedLI);
 
         const url = this.list[i];
         this.sound = new Howl({
             src: [url],
             preload: true,
             onend: () => {
+              
+                selectedLI.className = "track";
                 i = (i + 1) % this.list.length;
-                this.autoplay();
+                this.autoplay(i);
             }
         });
         this.sound.play();
+        selectedLI.className += " selected";
+        this.isPaused = false;
+    }
+
+    toggleAutoPlay(i){
+      
+      let newi = i+2;
+      let selectedLI = document.querySelector('li.track:nth-child('+newi+')');
+
+      toggleAnimation();
+      console.log('Trying to play no: '+i);
+      
+      if (this.sound){
+        // Check whats playing, pause if same
+        if(this.list[i] == this.sound._src){
+          // Same Song
+          if(this.isPaused){
+            console.log('Same Song - Playing ');
+            this.sound.play();
+            selectedLI.style.animationPlayState = 'running';
+            this.isPaused = false;
+          }else{
+            console.log('Same Song - Pausing ');
+            this.sound.pause();
+            selectedLI.style.animationPlayState = 'paused';
+            this.isPaused = true;
+          }
+        }else{
+          // stop and start new song
+          console.log('New Song - Stop n Play ');
+          this.sound.stop();
+          this.autoplay(i);
+          toggleAnimation();
+          document.querySelector('li.selected').className = "track";
+        }
+          // console.log(this.sound._src);
+      }else{
+        console.log('No Sound Playing. Start Playing ');
+        // No Sound Playing. Start Playing 
+        this.autoplay(i);
+      }
+
     }
 
     stop() {
@@ -1154,13 +1204,17 @@ class MusicPlayer {
     pause() {
         if (this.sound) {
             this.sound.pause();
+            this.isPaused = true;
         }
     }
 
 }
 
+
 function loadPlaylistfromAPIResult() {
    const curPlaylist = document.querySelector('.curPlaylist');
+   const musicPlayer = new MusicPlayer(newPlaylist);
+
 
     let li = document.createElement('li');        
     li.className += "playlistTitle";
@@ -1206,7 +1260,8 @@ function loadPlaylistfromAPIResult() {
 
         const li = document.createElement('li');        
         li.className += "track";        
-        li.addEventListener('click', () => musicPlayer.autoplay(i));
+
+        li.addEventListener('click', () => musicPlayer.toggleAutoPlay(i));
 
             // Artist
                 const pArtist = document.createElement('h6');
