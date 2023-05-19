@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Playlist</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/player_v3.css">
+    <link rel="stylesheet" href="css/playlist.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+
+    <!-- GOOGLE FONTS -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Just+Another+Hand&display=swap" rel="stylesheet">
+
+
+
+    <script src="js/player-boombox.js"></script>
+
+    <script src="js/howler.min.js"></script>
+
+    <script src="js/playlist.js"></script>
+    <script>
+    let musicPlayer;
+     
+window.addEventListener("load", function () {
+    
+    loadPlaylistfromAPIResult();     
+    
+    // musicPlayer = new MusicPlayer(newPlaylist);
+
+    console.log(musicPlayer);
+    // musicPlayer.autoplay();
+
+
+
+});
+
+    </script>
+
+</head>
+
+<body>
+
+    <header>
+        <nav class="flex limitedWidth">
+            <div class="logo"><a href="/" class="font-bold text-lg">Mix.tape</a></div><input type="checkbox"
+                id="checkbox_toggle"><label for="checkbox_toggle" class="burger">☰</label>
+            <ul class="menu">
+                <li class="nav__item mr-3"><a @click="isOpen = false"
+                        class="text-ml inline-block text-gray-500 no-underline hover:text-indigo-500 py-2 px-4"
+                        href="/">GENRES</a></li>
+                <li class="nav__item mr-3"><a @click="isOpen = false"
+                        class="text-ml inline-block text-gray-500 no-underline hover:text-indigo-500 py-2 px-4"
+                        href="/archive/">MOODS</a></li>
+                <li class="nav__item mr-3"><a @click="isOpen = false"
+                        class="text-ml inline-block text-gray-500 no-underline hover:text-indigo-500 py-2 px-4"
+                        href="/about">ALBUMS</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="browse">
+
+            <div class="mixtape">
+                <div class="casette" style="background-image: url('https://e-cdns-images.dzcdn.net/images/cover/134778e4c4f19ea71c82408300925a9a/200x200-000000-80-0-0.jpg');">
+                    <img src="img/clearTape.png" alt="Starboy">
+                </div>
+                <h5>Starboy</h5>
+                <h6>The Weekend</h6>
+                <p>FEAT - Micheal Jones, Rick Steve, Jimmy SLaves, Aerosmith and more...</p>
+            </div>
+
+
+            <div class="mixtape">
+            <div class="casette" style="background-image: url('https://e-cdn-images.dzcdn.net/images/artist/5294e68e9ef4f0359237935a4b8388f2/264x264-000000-80-0-0.jpg');">
+                <img src="img/clearTape.png" alt="Starboy">
+            </div>
+            <h5>Starboy</h5>
+            <h6>The Weekend</h6>
+            <p>FEAT - Micheal Jones, Rick Steve, Jimmy SLaves, Aerosmith and more...</p>
+        </div>
+
+        <div class="mixtape">
+            <div class="casette" style="background-image: url('https://e-cdns-images.dzcdn.net/images/playlist/33eda58e86af0190b1d18dc514244008/264x264-000000-80-0-0.jpg');">
+                <img src="img/clearTape.png" alt="Starboy">
+            </div>
+                <h5>Dance Party 2023</h5>
+                <h6>The Weekend</h6>
+                <p>FEAT - Micheal Jones, Rick Steve, Jimmy SLaves, Aerosmith and more...</p>
+            </div>
+
+            <div class="mixtape">
+            <div class="casette" style="background-image: url('https://i.pinimg.com/originals/ea/1f/64/ea1f64668a0af149a3277db9e9e54824.jpg');">
+                <img src="img/clearTape.png" alt="Starboy">
+            </div>
+                <h5>Starboy</h5>
+                <h6>The Weekend</h6>
+                <p>FEAT - Micheal Jones, Rick Steve, Jimmy SLaves, Aerosmith and more...</p>
+            </div>
+
+            <div class="casette" style="background-image: url('https://m.media-amazon.com/images/I/71eUfRnZ3aL._AC_UY218_.jpg');">
+                <img src="img/clearTape.png" alt="Starboy">
+            </div>
+            <div class="casette" style="background-image: url('https://m.media-amazon.com/images/I/71qXJJtRWhL._SX679_.jpg');">
+                <img src="img/clearTape.png" alt="Starboy">
+            </div>
+            <div class="casette" style="background-image: url('https://m.media-amazon.com/images/I/61go09wk+jL._SX440_BO1,204,203,200_.jpg');">
+                <img src="img/clearTape.png" alt="Starboy">
+            </div>
+
+        </section>
+    </main>
+
+
+</body>
+
+</html>

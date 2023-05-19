@@ -1,0 +1,31 @@
+:root{
+    --stage-background-color: #363a66;
+    --primary-text: #ffffff;
+}
+
+.stage {
+    background-color:var(--stage-background-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    max-width: 1400px;
+    min-height: 60vh;
+}
+
+.frame{
+    width: 100%;
+    height: 35vw;
+        min-height: 330px;
+        max-height: 420px;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 6vw solid #1f1c38;
+    border-bottom-width: min(6vw,70px);    
+    background-color: #d5e5e3;
+    background-image: url('/img/ab.svg');
+    background-size: cover;
+}

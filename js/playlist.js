@@ -1219,15 +1219,29 @@ function loadPlaylistfromAPIResult() {
     let li = document.createElement('li');        
     li.className += "playlistTitle";
      // Playlist Info
-        let newP = document.createElement('h2');
-        newP.append(playlistTitle);
-        newP.className += "title";
-        li.appendChild(newP);
 
-        newP = document.createElement('img');
-        newP.src= playlistMediumPicture;
-        newP.className += "cover";
-        li.appendChild(newP);        
+     
+     // Cover Casette
+     const pCTape = document.createElement('div');        
+     pCTape.className = "casette";
+     pCTape.style.backgroundImage =` url('${playlistMediumPicture}')`;
+     const pCTapeBlank = document.createElement('img');                               
+     pCTapeBlank.src = 'img/clearTape.png';
+     pCTape.appendChild(pCTapeBlank);    
+     li.appendChild(pCTape);    
+     
+     //  Playlist Title
+     let newP = document.createElement('h2');
+     newP.append(playlistTitle);
+     newP.className += "title";
+     li.appendChild(newP);
+     
+     // newP = document.createElement('img');
+        // newP.src= playlistMediumPicture;
+        // newP.className += "cover";
+        // li.appendChild(newP);     
+        
+
 
         newP = document.createElement('p');
         newP.append(playlistDescription);
@@ -1295,7 +1309,9 @@ function loadPlaylistfromAPIResult() {
                 const pCover = document.createElement('img');
                 pCover.src = albumSmallCover;
                 pCover.className += "cover";
-                li.appendChild(pCover);            
+                li.appendChild(pCover);    
+                
+                           
 
 
         // Display in UI
