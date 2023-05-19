@@ -48,25 +48,37 @@ body {
 
 /* -------------------- NAVIGATION -------------------- */
 
-header{
+header {
     width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9;
 }
 
 nav.limitedWidth{
     display: flex;
     justify-content: flex-start;
     padding:20px 30px;
-    background-color:var(--dark1);
     font-size: 0.85em;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
 
-nav .logo{
-    /* background: url("../img/logo.png") 0 0 no-repeat; */
+nav .logo{   
     background-size: contain;
     display: block;    
     font-weight: bold;    
+}
+
+.logoLink{
+    background: url("../img/logo4.png") no-repeat;
+    background-size: 100%;
+    display: block;
+    width: 125px;
+    height: 55px;
+    overflow: hidden;
+    text-indent: 100%;
 }
 
 nav input[type=checkbox] {
@@ -117,6 +129,7 @@ nav ul li a:hover{
     nav .burger{
         display: block;
         color: #fff;
+        font-size: 2em;
     }
 
     nav .menu{
